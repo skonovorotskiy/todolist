@@ -10,10 +10,10 @@ import Foundation
 
 class ListScreenModel: ListScreenModelProtocol {
     
-    var dataArray : [ListScreenEntity] = [ListScreenEntity]()
+    var dataArray : [ListScreenData] = [ListScreenData]()
     
     func add(name: String) {
-        let entity = ListScreenEntity(name : name)
+        let entity = ListScreenData(name : name)
         dataArray.append(entity)
     }
     
@@ -21,14 +21,10 @@ class ListScreenModel: ListScreenModelProtocol {
         dataArray.remove(at: index)
     }
     
-    func setName(_ name : String, forIndex index : Int) {
+    func save(name : String, description : String?, forIndex index : Int) {
         let entity = dataArray[index]
         entity.name = name
-    }
-    
-    func setDescription(_ description : String, forIndex index : Int) {
-        let entity = dataArray[index]
-        entity.description = description
+        entity.details = description
     }
 
     func numberOfSections() -> Int {
@@ -39,7 +35,16 @@ class ListScreenModel: ListScreenModelProtocol {
         return dataArray.count
     }
     
-    func data(atIndex index: Int) -> ListScreenEntity {
-        return dataArray[index]
+    func data(atIndex index: Int) -> ListScreenData? {
+        if (numberOfRowsInSection(0) > index) {
+            return dataArray[index]
+        }
+        else {
+            return nil
+        }
+    }
+    
+    func detailsModel(forIndex index : NSInteger) -> ListScreenDetailsModelProtocol? {
+        return ListScreenDetailsModel(withModel: self, index: index)
     }
 }

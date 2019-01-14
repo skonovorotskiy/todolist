@@ -8,12 +8,14 @@
 
 import UIKit
 
+let kCellIdentifier = "Identifier"
+let kSequeIdentifier = "Details"
+
 class ListScreenVC: UITableViewController {
     
-    let identifier = "Identifier"
     var model : ListScreenModelProtocol!
     var presenter : ListScreenPresenterProtocol!
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         let model = ListScreenModel()
@@ -27,6 +29,11 @@ class ListScreenVC: UITableViewController {
         super.didReceiveMemoryWarning()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super .viewWillAppear(animated)
+        tableView.reloadData()
+    }
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return model.numberOfSections()
     }
@@ -36,8 +43,10 @@ class ListScreenVC: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell : ListScreenCell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! ListScreenCell
-        cell.title?.text = model.data(atIndex: indexPath.row).name
+        let cell : ListScreenCell = tableView.dequeueReusableCell(withIdentifier: kCellIdentifier, for: indexPath) as! ListScreenCell
+        if let data = model.data(atIndex: indexPath.row) {
+            cell.title?.text = data.name
+        }
         return cell
     }
     
@@ -61,6 +70,24 @@ class ListScreenVC: UITableViewController {
         self.presenter.showNameAlert { (name) in
             self.model.add(name: name)
             self.tableView.reloadData()
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == kSequeIdentifier {
+            guard let navigation : UINavigationController = segue.destination as? UINavigationController else {
+                return
+            }
+            guard let viewController : DetailsVC = navigation.viewControllers.first as? DetailsVC else {
+                return
+            }
+            guard let indexPath = self.tableView.indexPathForSelectedRow else {
+                return
+            }
+            guard let detailsModel = model.detailsModel(forIndex: indexPath.row) else {
+                return
+            }
+            viewController.model = detailsModel
         }
     }
 }

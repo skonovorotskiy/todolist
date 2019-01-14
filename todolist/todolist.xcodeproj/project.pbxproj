@@ -17,11 +17,13 @@
 		A52B896721E9187000E3CBE5 /* todolistUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52B896621E9187000E3CBE5 /* todolistUITests.swift */; };
 		A52B897B21EC87F300E3CBE5 /* ListScreenModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52B897A21EC87F300E3CBE5 /* ListScreenModel.swift */; };
 		A52B897D21EC889500E3CBE5 /* ListScreenModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52B897C21EC889500E3CBE5 /* ListScreenModelProtocol.swift */; };
-		A5FFA1CC21EC8FAC00E5F00B /* ListScreenEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FFA1CB21EC8FAC00E5F00B /* ListScreenEntity.swift */; };
+		A5FFA1CC21EC8FAC00E5F00B /* ListScreenData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FFA1CB21EC8FAC00E5F00B /* ListScreenData.swift */; };
 		A5FFA1CE21EC950C00E5F00B /* ListScreenPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FFA1CD21EC950C00E5F00B /* ListScreenPresenterProtocol.swift */; };
 		A5FFA1D021EC961A00E5F00B /* ListScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FFA1CF21EC961A00E5F00B /* ListScreenPresenter.swift */; };
 		A5FFA1D221ECA5A100E5F00B /* ListScreenCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FFA1D121ECA5A100E5F00B /* ListScreenCell.swift */; };
 		A5FFA1D521ECBBB500E5F00B /* UITextFieldDelegateImplementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FFA1D421ECBBB500E5F00B /* UITextFieldDelegateImplementation.swift */; };
+		A5FFA1DB21ED006600E5F00B /* DetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FFA1DA21ED006600E5F00B /* DetailsVC.swift */; };
+		A5FFA1DD21ED168F00E5F00B /* ListScreenDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FFA1DC21ED168F00E5F00B /* ListScreenDetailsModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,11 +60,13 @@
 		A52B896821E9187000E3CBE5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A52B897A21EC87F300E3CBE5 /* ListScreenModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListScreenModel.swift; sourceTree = "<group>"; };
 		A52B897C21EC889500E3CBE5 /* ListScreenModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListScreenModelProtocol.swift; sourceTree = "<group>"; };
-		A5FFA1CB21EC8FAC00E5F00B /* ListScreenEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListScreenEntity.swift; sourceTree = "<group>"; };
+		A5FFA1CB21EC8FAC00E5F00B /* ListScreenData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListScreenData.swift; sourceTree = "<group>"; };
 		A5FFA1CD21EC950C00E5F00B /* ListScreenPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListScreenPresenterProtocol.swift; sourceTree = "<group>"; };
 		A5FFA1CF21EC961A00E5F00B /* ListScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListScreenPresenter.swift; sourceTree = "<group>"; };
 		A5FFA1D121ECA5A100E5F00B /* ListScreenCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListScreenCell.swift; sourceTree = "<group>"; };
 		A5FFA1D421ECBBB500E5F00B /* UITextFieldDelegateImplementation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldDelegateImplementation.swift; sourceTree = "<group>"; };
+		A5FFA1DA21ED006600E5F00B /* DetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsVC.swift; sourceTree = "<group>"; };
+		A5FFA1DC21ED168F00E5F00B /* ListScreenDetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListScreenDetailsModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +168,7 @@
 				A52B894721E9187000E3CBE5 /* List.storyboard */,
 				A5FFA1CD21EC950C00E5F00B /* ListScreenPresenterProtocol.swift */,
 				A5FFA1CF21EC961A00E5F00B /* ListScreenPresenter.swift */,
+				A5FFA1DA21ED006600E5F00B /* DetailsVC.swift */,
 			);
 			path = ListScreen;
 			sourceTree = "<group>";
@@ -190,9 +195,10 @@
 		A52B897921EC87C700E3CBE5 /* ListModel */ = {
 			isa = PBXGroup;
 			children = (
-				A52B897A21EC87F300E3CBE5 /* ListScreenModel.swift */,
-				A5FFA1CB21EC8FAC00E5F00B /* ListScreenEntity.swift */,
 				A52B897C21EC889500E3CBE5 /* ListScreenModelProtocol.swift */,
+				A52B897A21EC87F300E3CBE5 /* ListScreenModel.swift */,
+				A5FFA1CB21EC8FAC00E5F00B /* ListScreenData.swift */,
+				A5FFA1DC21ED168F00E5F00B /* ListScreenDetailsModel.swift */,
 			);
 			path = ListModel;
 			sourceTree = "<group>";
@@ -342,13 +348,15 @@
 				A5FFA1D021EC961A00E5F00B /* ListScreenPresenter.swift in Sources */,
 				A52B897D21EC889500E3CBE5 /* ListScreenModelProtocol.swift in Sources */,
 				A52B894C21E9187000E3CBE5 /* todolist.xcdatamodeld in Sources */,
-				A5FFA1CC21EC8FAC00E5F00B /* ListScreenEntity.swift in Sources */,
+				A5FFA1CC21EC8FAC00E5F00B /* ListScreenData.swift in Sources */,
 				A5FFA1D221ECA5A100E5F00B /* ListScreenCell.swift in Sources */,
 				A52B897B21EC87F300E3CBE5 /* ListScreenModel.swift in Sources */,
+				A5FFA1DD21ED168F00E5F00B /* ListScreenDetailsModel.swift in Sources */,
 				A52B894621E9187000E3CBE5 /* ListScreenVC.swift in Sources */,
 				A5FFA1CE21EC950C00E5F00B /* ListScreenPresenterProtocol.swift in Sources */,
 				A5FFA1D521ECBBB500E5F00B /* UITextFieldDelegateImplementation.swift in Sources */,
 				A52B894421E9187000E3CBE5 /* AppDelegate.swift in Sources */,
+				A5FFA1DB21ED006600E5F00B /* DetailsVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
