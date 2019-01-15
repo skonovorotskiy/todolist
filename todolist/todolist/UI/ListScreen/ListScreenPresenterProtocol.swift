@@ -10,4 +10,5 @@ import Foundation
 
 protocol ListScreenPresenterProtocol {
     func showNameAlert(withCompletion completion : @escaping (String) -> Swift.Void)
+    func showError()
 }

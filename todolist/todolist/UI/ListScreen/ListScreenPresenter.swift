@@ -36,5 +36,9 @@ class ListScreenPresenter: NSObject, ListScreenPresenterProtocol {
         })
         self.viewController.present(alert, animated: true)
     }
+    
+    func showError() {
+        
+    }
 }
 

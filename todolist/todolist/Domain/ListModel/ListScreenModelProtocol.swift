@@ -9,7 +9,7 @@
 import Foundation
 
 protocol ListScreenModelProtocol {
-    func add(name : String)
+    func add()
     func deleteData(forIndex index : Int)
     func save(name : String, description : String?, forIndex index : Int)
     func numberOfSections() -> Int
@@ -22,4 +22,9 @@ protocol ListScreenDetailsModelProtocol {
     func deleteData()
     func save(name : String, description : String?)
     func data() -> ListScreenData?
+}
+
+protocol ListScreenDetailsModelDelegate {
+    func needsReloadData()
+    func needsDeleteRow(atIndexPath indexPath : IndexPath)
 }

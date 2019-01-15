@@ -11,27 +11,23 @@ import UIKit
 let kCellIdentifier = "Identifier"
 let kSequeIdentifier = "Details"
 
-class ListScreenVC: UITableViewController {
+class ListScreenVC: UITableViewController, ListScreenDetailsModelDelegate {
     
     var model : ListScreenModelProtocol!
-    var presenter : ListScreenPresenterProtocol!
-        
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        let model = ListScreenModel()
-        self.model = model
         let presenter = ListScreenPresenter(viewController: self)
-        self.presenter = presenter
+        let model = ListScreenModel()
+        model.presenter = presenter
+        model.delegate = self
+        model.loadData()
+        self.model = model
         self.tableView.tableFooterView = UIView()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super .viewWillAppear(animated)
-        tableView.reloadData()
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -61,16 +57,24 @@ class ListScreenVC: UITableViewController {
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let deleteAction  = UITableViewRowAction(style: .destructive, title: "Delete") { (rowAction, indexPath) in
             self.model.deleteData(forIndex: indexPath.row)
-            self.tableView.deleteRows(at:[indexPath], with:.automatic)
         }
         return [deleteAction]
     }
     
+    // ListScreenDetailsModelDelegate
+    
+    func needsReloadData() {
+        self.tableView .reloadData()
+    }
+    
+    func needsDeleteRow(atIndexPath indexPath: IndexPath) {
+        self.tableView.deleteRows(at: [indexPath], with: .automatic)
+    }
+    
+    // IBActions
+    
     @IBAction func addTapped(_ sender: Any) {
-        self.presenter.showNameAlert { (name) in
-            self.model.add(name: name)
-            self.tableView.reloadData()
-        }
+        self.model.add()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

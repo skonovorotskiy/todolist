@@ -17,6 +17,10 @@
 		A52B896721E9187000E3CBE5 /* todolistUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52B896621E9187000E3CBE5 /* todolistUITests.swift */; };
 		A52B897B21EC87F300E3CBE5 /* ListScreenModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52B897A21EC87F300E3CBE5 /* ListScreenModel.swift */; };
 		A52B897D21EC889500E3CBE5 /* ListScreenModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52B897C21EC889500E3CBE5 /* ListScreenModelProtocol.swift */; };
+		A5C258B521ED4156006AD08C /* Entity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C258B321ED4156006AD08C /* Entity+CoreDataClass.swift */; };
+		A5C258B621ED4156006AD08C /* Entity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C258B421ED4156006AD08C /* Entity+CoreDataProperties.swift */; };
+		A5C258B921ED4166006AD08C /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5C258B821ED4166006AD08C /* CoreData.framework */; };
+		A5C258BB21ED4360006AD08C /* CoreDataAccessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C258BA21ED4360006AD08C /* CoreDataAccessor.swift */; };
 		A5FFA1CC21EC8FAC00E5F00B /* ListScreenData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FFA1CB21EC8FAC00E5F00B /* ListScreenData.swift */; };
 		A5FFA1CE21EC950C00E5F00B /* ListScreenPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FFA1CD21EC950C00E5F00B /* ListScreenPresenterProtocol.swift */; };
 		A5FFA1D021EC961A00E5F00B /* ListScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FFA1CF21EC961A00E5F00B /* ListScreenPresenter.swift */; };
@@ -60,6 +64,10 @@
 		A52B896821E9187000E3CBE5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A52B897A21EC87F300E3CBE5 /* ListScreenModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListScreenModel.swift; sourceTree = "<group>"; };
 		A52B897C21EC889500E3CBE5 /* ListScreenModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListScreenModelProtocol.swift; sourceTree = "<group>"; };
+		A5C258B321ED4156006AD08C /* Entity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Entity+CoreDataClass.swift"; sourceTree = "<group>"; };
+		A5C258B421ED4156006AD08C /* Entity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Entity+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		A5C258B821ED4166006AD08C /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		A5C258BA21ED4360006AD08C /* CoreDataAccessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataAccessor.swift; sourceTree = "<group>"; };
 		A5FFA1CB21EC8FAC00E5F00B /* ListScreenData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListScreenData.swift; sourceTree = "<group>"; };
 		A5FFA1CD21EC950C00E5F00B /* ListScreenPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListScreenPresenterProtocol.swift; sourceTree = "<group>"; };
 		A5FFA1CF21EC961A00E5F00B /* ListScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListScreenPresenter.swift; sourceTree = "<group>"; };
@@ -74,6 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5C258B921ED4166006AD08C /* CoreData.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,6 +110,7 @@
 				A52B895A21E9187000E3CBE5 /* todolistTests */,
 				A52B896521E9187000E3CBE5 /* todolistUITests */,
 				A52B894121E9187000E3CBE5 /* Products */,
+				A5C258B721ED4166006AD08C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -188,6 +198,9 @@
 			isa = PBXGroup;
 			children = (
 				A52B894A21E9187000E3CBE5 /* todolist.xcdatamodeld */,
+				A5C258B321ED4156006AD08C /* Entity+CoreDataClass.swift */,
+				A5C258B421ED4156006AD08C /* Entity+CoreDataProperties.swift */,
+				A5C258BA21ED4360006AD08C /* CoreDataAccessor.swift */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -201,6 +214,14 @@
 				A5FFA1DC21ED168F00E5F00B /* ListScreenDetailsModel.swift */,
 			);
 			path = ListModel;
+			sourceTree = "<group>";
+		};
+		A5C258B721ED4166006AD08C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A5C258B821ED4166006AD08C /* CoreData.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		A5FFA1D321ECBB6700E5F00B /* Helpers */ = {
@@ -347,6 +368,7 @@
 			files = (
 				A5FFA1D021EC961A00E5F00B /* ListScreenPresenter.swift in Sources */,
 				A52B897D21EC889500E3CBE5 /* ListScreenModelProtocol.swift in Sources */,
+				A5C258B521ED4156006AD08C /* Entity+CoreDataClass.swift in Sources */,
 				A52B894C21E9187000E3CBE5 /* todolist.xcdatamodeld in Sources */,
 				A5FFA1CC21EC8FAC00E5F00B /* ListScreenData.swift in Sources */,
 				A5FFA1D221ECA5A100E5F00B /* ListScreenCell.swift in Sources */,
@@ -354,6 +376,8 @@
 				A5FFA1DD21ED168F00E5F00B /* ListScreenDetailsModel.swift in Sources */,
 				A52B894621E9187000E3CBE5 /* ListScreenVC.swift in Sources */,
 				A5FFA1CE21EC950C00E5F00B /* ListScreenPresenterProtocol.swift in Sources */,
+				A5C258BB21ED4360006AD08C /* CoreDataAccessor.swift in Sources */,
+				A5C258B621ED4156006AD08C /* Entity+CoreDataProperties.swift in Sources */,
 				A5FFA1D521ECBBB500E5F00B /* UITextFieldDelegateImplementation.swift in Sources */,
 				A52B894421E9187000E3CBE5 /* AppDelegate.swift in Sources */,
 				A5FFA1DB21ED006600E5F00B /* DetailsVC.swift in Sources */,
